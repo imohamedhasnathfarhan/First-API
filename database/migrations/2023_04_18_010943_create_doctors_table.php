@@ -16,12 +16,12 @@ return new class extends Migration
             $table->string('first_name',50);
             $table->string('last_name',50);
             $table->string('gender')->nullable();
-            $table->string('mobile')->unique();
+            $table->string('mobile');
             $table->string('password');
             $table->string('designation')->nullable();
             $table->string('department')->nullable();
             $table->string('address')->nullable();
-            $table->string('email')->unique();
+            $table->string('email');
             $table->date('dob')->nullable();
             $table->string('education')->nullable();
             $table->string('profile_picture')->nullable();

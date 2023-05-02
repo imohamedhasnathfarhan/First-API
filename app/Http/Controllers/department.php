@@ -29,6 +29,36 @@ class department extends Controller
    
     }
 
+    function updatedepartmentdata(Request $request,$id){
+
+       
+        $table = departmentmodel::where('id',$id)->first();
+        $table->name = $request->name;
+        $table->date = $request->date;
+        $table->department_head = $request->department_head;
+        $table->status  = $request->status;
+        $table->description = $request->description;
+        $table->save();
+        return response()->json($table, 200);
+   
+    }
+
+
+    function deletedepartmentdata(Request $request,$id){
+
+       
+        $table = departmentmodel::where('id',$id)->first();
+        if($table){
+            $table->delete();
+            $message = "Success";
+           return response()->json($message, 200);
+        }else{
+            $message = "User Not Found!";
+           return response()->json($message, 200);
+        }  
+   
+    }
+
 
 
 
